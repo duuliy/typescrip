@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TypeScript Greeter</title>
+</head>
+
+<body>
+    <script src="greeter.js"></script>
+    <script>
+        function test(...arg) {
+            var s = "";
+            for (var i = 0; i < arg.length; i++) {
+                console.dir(arg[i]);
+                s += arg[i] + ",";
+            }
+            return s;
+        }
+        test('name', 'sss')
+
+        function add(a) {
+            // debugger
+            console.warn(a)
+
+            sum.toString = function () { // 重写toString()方法
+                // debugger
+                console.warn(a)
+                return a;
+            }
+
+            function sum(b) { // 使用闭包
+                // debugger
+                console.warn(b)
+                a = a + b; // 累加
+                return sum;
+            }
+            console.warn(666)
+            return sum; // 返回一个函数
+        }
+
+
+        const add3 = (...args) => {
+            let sum = args.reduce((pre, crt) => pre + crt);
+            const accu = (...args2) => {
+                sum += args2.reduce((pre, crt) => pre + crt);
+                return accu;
+            }
+            accu.valueOf = () => sum;
+            return accu;
+        }
+
+        // console.log(add(1)); // 1
+        // console.log(add(1)(2)); // 3
+        // console.log(add3(1)(2)(3)); // 6
+        // console.log(add(1)(2)(3)(4)); // 10
+
+
+    </script>
+</body>
+
+</html>
