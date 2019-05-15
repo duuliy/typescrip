@@ -4,7 +4,7 @@ class Student {
         this.fullName = firstName + " " + middleInitial + " " + lastName;
     }
 }
-
+//构造函数的参数上使用public等同于创建了同名的成员变量
 interface Person {
     firstName: string;
     lastName: string;

@@ -16,7 +16,7 @@ let names: string = "bob";
 let list1: number[] = [1, 2, 3];
 let list: Array<number> = [1, 2, 3];
 
-//元组 Tuple
+//元组 Tuple 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。
 // Declare a tuple type
 let x: [string, number];
 // Initialize it
@@ -70,8 +70,10 @@ function infiniteLoop(): never {
 }
 
 //Object
+//declare声明函数或者变量 定义类型时才可用
 
-declare function create(o: object | null): void;
+declare function create(o: object | null): void ;
+ function create(o: object | null): void {console.log(666)};
 
 create({ prop: 0 }); // OK
 create(null); // OK
@@ -87,9 +89,9 @@ create(undefined); // Error
 // 它没有运行时的影响，只是在编译阶段起作用。 TypeScript会假设你，程序员，已经进行了必须的检查。
 
 //1.
-let someValue: any = "this is a string";
+let someValue1: any = "this is a string";
 
-let strLength: number = (<string>someValue).length;
+let strLength1: number = (<string>someValue1).length;
 
 //2.
 let someValue: any = "this is a string";
