@@ -19,7 +19,7 @@ interface SquareConfig {
     color?: string;
     width?: number;
   }
-  
+  //第一个（）是参数类型，第一个花括号是返回值类型对象
   function createSquare(config: SquareConfig): {color: string; area: number} {
     let newSquare = {color: "white", area: 100};
     if (config.color) {
@@ -34,6 +34,10 @@ interface SquareConfig {
   let mySquare = createSquare({color: "black"});
 
   /** *///只读属性 /** */
+
+  //readonly vs const  语义环境不同
+//最简单判断该用readonly还是const的方法是看要把它做为变量使用还是做为一个属性。 
+//做为变量使用的话用 const，若做为属性则使用readonly。
 
 interface Point {
     readonly x: number;
@@ -53,7 +57,7 @@ p1.x = 5; // error!
 }
 
 function createSquare(config: SquareConfig): { color: string; area: number } {
-    // ...
+    // ...propName
 }
 
 let mySquare = createSquare({ colour666: "red", width: 100 });
@@ -62,6 +66,16 @@ let mySquare = createSquare({ colour666: "red", width: 100 });
 
 
   /** *///函数类型 /** */
+
+  interface SearchFunc {
+    (source: string, subString: string): boolean;
+  }
+
+  let mySearch: SearchFunc;
+mySearch = function(src: string, sub: string): boolean {
+  let result = src.search(sub);
+  return result > -1;
+}
 
 
     /** *///可索引的类型 /** */

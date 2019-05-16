@@ -71,7 +71,7 @@ function infiniteLoop(): never {
 
 //Object
 //declare声明函数或者变量 定义类型时才可用
-
+//这里的void是返回值
 declare function create(o: object | null): void ;
  function create(o: object | null): void {console.log(666)};
 
