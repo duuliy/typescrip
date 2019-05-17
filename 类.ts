@@ -1,5 +1,5 @@
  /** *///类的声明 /** */
- //public  就算写在参数里面也是声明了
+ //public  就算写在参数里面也是声明了 默认 公开
  //readonly  顾名思义
  //eg: const bb=(public aa:string ){}
 class person{
@@ -26,13 +26,30 @@ p2.name='999'   //访问不到
 //受保护的 protected
 
 class person3{
-    protected name;
+    protected name: string;
+    constructor(name: string) { this.name = name; }
     protected eat() {
         console.warn(666)
     }
 }
 
-let p3 = new person()   
+class person4 extends person3{
+    private department: string;
+
+    constructor(name, department: string) {
+        super(name)
+        this.department = department;
+    }
+
+    public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+    }
+}
+
+let howard = new person4(666, "Sales");  
+console.log(howard.getElevatorPitch());//可以访问
+
+let p3 = new person3()   
 p3.name='999'   //访问不到,但是在函数内部可以调用
 
 
@@ -92,6 +109,14 @@ if (employee2.fullName) {
 
 let grid1 = new Grid(1.0);  // 1x scale
 let grid2 = new Grid(5.0);  // 5x scale
+
+//抽象类 abstract关键字是用于定义抽象类和在抽象类内部定义抽象方法。
+abstract class Animal {
+    abstract makeSound(): void;
+    move(): void {
+        console.log('roaming the earch...');
+    }
+}
 
 console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10}));
 console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
