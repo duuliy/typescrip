@@ -110,14 +110,59 @@ if (employee2.fullName) {
 let grid1 = new Grid(1.0);  // 1x scale
 let grid2 = new Grid(5.0);  // 5x scale
 
+console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10})); //调不到 origin
+console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
+
 //抽象类 abstract关键字是用于定义抽象类和在抽象类内部定义抽象方法。
-abstract class Animal {
-    abstract makeSound(): void;
-    move(): void {
-        console.log('roaming the earch...');
+
+abstract class Animal{
+    public name:string;
+    constructor(name:string){
+        this.name=name;
+    }
+ 
+    //抽象方法 ，不包含具体实现，要求子类中必须实现此方法
+    abstract eat():any;
+ 
+    //非抽象方法，无需要求子类实现、重写
+    run(){
+        console.log('非抽象方法，不要子类实现、重写');
+    }
+}
+ 
+class  Dog extends Animal{
+ 
+    //子类中必须实现父类抽象方法，否则ts编译报错
+    eat(){
+       return this.name+"吃肉";
     }
 }
 
-console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10}));
-console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
+//高级技巧
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
 
+let greeter: Greeter;  //"告诉我 Greeter标识符的类型"
+greeter = new Greeter("world");
+console.log(greeter.greet());
+
+//我们写了 let greeter: Greeter，意思是 Greeter类的实例的类型是 Greeter。
+
+//把类当做接口使用
+class Point {
+    x: number;
+    y: number;
+}
+
+interface Point3d extends Point {
+    z: number;
+}
+
+let point3d: Point3d = {x: 1, y: 2, z: 3};
