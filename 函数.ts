@@ -4,6 +4,7 @@
     return x + y;
 }
 
+//如之前提到的，返回值类型是函数类型的必要部分，如果函数没有返回任何值，你也必须指定返回值类型为 void而不能留空。
 
 let myAdd=(x: number, y: number):number =>  { return x + y; };
 
