@@ -46,3 +46,6 @@ function loggingIdentity2<T extends Lengthwise>(arg: T): T {
 loggingIdentity2(3);  // Error, number doesn't have a .length property
 
 loggingIdentity2({length: 10, value: 3});
+
+
+//泛型不可使用为函数返回类型

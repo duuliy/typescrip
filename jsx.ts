@@ -10,3 +10,4 @@ var foo = <foo>bar;
 var foo = bar as foo;
 
 //其他的没得固定了，灵活运用
+
