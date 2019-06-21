@@ -59,6 +59,8 @@ let unusable: void = undefined;
 
 //Null 和 Undefined
 
+let u: undefined = undefined;
+let n: null = null;
 
 //Never  类型表示的是那些永不存在的值的类型。
 // 没有类型是never的子类型或可以赋值给never类型（除了never本身之外）。 即使 any也不可以赋值给never。
@@ -102,3 +104,8 @@ let strLength: number = (someValue as string).length;
  /** *///高级类型 /** */
 //这里可以用 和， 或，  其中一个  这些高级方法
  // &， |，  instanceof
+
+ //注意：
+
+ // 这样不会报错
+let num: number = undefined;
