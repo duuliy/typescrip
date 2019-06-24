@@ -10,6 +10,7 @@ function identity2<T>(arg: T): T {
     return arg;
 }
 
+
 //此时，我们也可以使用不同的泛型参数名，只要在数量上和使用方式上能对应上就可以。
 let myIdentity: <U>(arg: U) => U = identity2;
 

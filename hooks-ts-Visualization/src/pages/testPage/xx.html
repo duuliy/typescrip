@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// Array.prototype.myMap = function (fn, context) {
+//   const array = this
+//   context = Object(context) || global   // 严格模式下
+//   const resultArr = []
+  
+//   for (let i = 0; i < array.length; i++) {
+//     let item = array[i]
+//     result = fn.call(context, item, i, array)
+//     resultArr.push(result)
+//   }
+//   return resultArr
+// }
+// Array.prototype.thatMap = function(fn, ctx) {
+//     const oriArr = this
+//     let mappedArr = [];
+//     for (let i = 0; i < oriArr.length; i++) {
+//         console.log(oriArr.hasOwnProperty(i))
+//         if (!oriArr.hasOwnProperty(i)) {
+//             console.log(666)
+//             // 若原数组为稀疏数组，不含索引为i的元素时，mappedArr直接增加length，来达到同样的稀疏效果
+//             mappedArr.length++;
+//         } else {
+//             mappedArr.push(fn.call(ctx, oriArr[i], i, this));
+//         }
+//     }
+//     return mappedArr;
+// };
+Array.prototype.thatMap=function (fn,ctx) {
+    let oriArr=Array.prototype.slice.call(this)
+    let mapedArr=[]
+    for(let i=0 ;i<oriArr.length; i++){
+        if(!oriArr.hasOwnProperty(i)) continue
+        mapedArr.push(fn.call(ctx,oriArr[i],i,this))
+    }
+    return mapedArr
+  }
+
+let a = [1,2,3,,,,45,];
+const b=a.thatMap((val,i,z) =>{
+    
+    return val+666},[7,8]); 
+console.log(b)
+    </script>
+</body>
+</html>
