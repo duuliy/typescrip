@@ -11,7 +11,7 @@ export default function() {
         <li>
           {/* <a href="https://umijs.org/guide/getting-started.html"> */}
             {formatMessage({ id: 'index.start' })}
-            这里写可视化
+            这里写可视化.
           {/* </a> */}
         </li>
       </ul>
