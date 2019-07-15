@@ -8,6 +8,8 @@
 
 let myAdd=(x: number, y: number):number =>  { return x + y; };
 
+const simple: (foo: number) => string = foo => foo.toString()  //参数为number ,返回值为string的函数
 add(5)
+
 
 //默认参数 this  =>  均和es6一样
