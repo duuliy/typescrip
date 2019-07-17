@@ -166,3 +166,25 @@ interface Point3d extends Point {
 }
 
 let point3d: Point3d = {x: 1, y: 2, z: 3};
+
+
+//私有的和受保护的成员必须来自于相同的类。
+class Animal {
+  protected feet: number;
+}
+class Cat extends Animal {}
+
+let animal: Animal;
+let cat: Cat;
+
+animal = cat; // ok
+cat = animal; // ok
+
+class Size {
+  protected feet: number;
+}
+
+let size: Size;
+
+animal = size; // ERROR
+size = animal; // ERROR

@@ -81,3 +81,20 @@ const enum Enum {
     B = A * 2
 }
 
+
+//来自于不同枚举的枚举变量，被认为是不兼容的：
+enum Status {
+    Ready,
+    Waiting
+  }
+  enum Color {
+    Red,
+    Blue,
+    Green
+  }
+  
+  let statu = Status.Ready;
+  let color = Color.Red;
+  
+  statu = color; // Error
+
