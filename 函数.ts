@@ -13,3 +13,23 @@ add(5)
 
 
 //默认参数 this  =>  均和es6一样
+
+
+//!!!!!!!!!!!为什么我不能在解构函数 function f({ x: number }) { /* ... */ } 中使用 x？
+function f({ x: number }) {
+    // Error, x is not defined?
+    console.log(x);
+  }
+
+  //对于那些习惯于查看 TypeScript 类型字面量的人来说，解构语法是有悖常理的。语法 f({ x: number }) 声明了属性名从 x 转换为 number 名的解构。
+  //为了能让这段代码正确运行，你需要写下：
+
+  function f2({ x }: { x: number }) {
+    // OK
+    console.log(x);
+  }
+
+  function f3({ x = 0 }) {
+    // x: number
+    console.log(x);
+  }

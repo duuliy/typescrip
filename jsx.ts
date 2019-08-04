@@ -11,3 +11,17 @@ var foo = bar as foo;
 
 //其他的没得固定了，灵活运用
 
+
+//我写了声明 declare var MyComponent: React.Component，为什么我不能写 <MyComponent />
+
+class Display extends React.Component<any, any> {
+    render() { ... }
+}
+
+let SomeThing: Display = /* ... */
+// Error here, isn't this OK?
+let jsx = <SomeThing />;
+
+//正确写法:
+let SomeThing2: typeof Display = /* ... */
+

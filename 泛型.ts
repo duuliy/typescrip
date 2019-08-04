@@ -50,3 +50,7 @@ loggingIdentity2({length: 10, value: 3});
 
 
 //泛型不可使用为函数返回类型
+
+
+
+//为什么不要在泛型函数中写 typeof T、new T, 或者 instanceof T？
