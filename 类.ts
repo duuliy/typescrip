@@ -188,3 +188,57 @@ let size: Size;
 
 animal = size; // ERROR
 size = animal; // ERROR
+
+
+
+//你应该发出这样的类，这样它们就不会在回掉函数中丢失 this!!!!!!!!!!!!!!!!
+
+class MyClass {
+    method() {}
+  }
+
+//正确：
+  var MyClass = (function() {
+    function MyClass() {
+      this.method = function() {};
+    }
+    return MyClass;
+  })();
+
+
+  //为什么在我的实例方法中，this 成了一个「孤儿」？
+
+  class MyClass {
+    x = 10;
+    someCallback() {
+      console.log(this.x); // Prints 'undefined', not 10
+      this.someMethod(); // Throws error "this.method is not a function"
+    }
+    someMethod() {}
+  }
+  
+  let obj = new MyClass();
+  window.setTimeout(obj.someCallback, 10);
+
+  //需要穿super把
+
+//   可能会提出一些相似的问题：
+
+// 为什么在我的回调函数中类的属性没有定义？
+// 为什么在我的回调函数中，this 指向 window？
+// 为什么在我的回调函数中，this 指向 undefined？
+// 为什么我会得到 this.someMethod is not a function 的错误？
+// 为什么我会得到 Cannot read property 'someMethod' of undefined 的错误？
+
+// 在 JavaScript 中，this 值由以下确定：
+
+// 1.该函数是调用 .bind 的结果吗？如果是这样，this 由传递给 bind 的第一个参数确定
+
+// 2.该函数是通过属性表达式 expr.method() ? 直接调用吗？如果是这样，this 指向 expr
+
+// 3.否则，this 是 undefined（在严格模式中），或者是 window （非严格模式中）。
+
+
+//当 Bar 是一个 class 时，Bar 和 typeof Bar 有什么区别？
+// 当在类型位置使用 typeof 操作符时，描述了表达式的类型。因此 typeof MyClass 是指 MyClass 的类型。
+
