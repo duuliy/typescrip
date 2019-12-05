@@ -25,3 +25,4 @@ class SmartObject implements Disposable, Activatable {
 //首先应该注意到的是，没使用extends而是使用implements。 
 //把类当成了接口，仅使用Disposable和Activatable的类型而非其实现。 
 //这意味着我们需要在类里面实现接口。 但是这是我们在用mixin时想避免的。
+}
