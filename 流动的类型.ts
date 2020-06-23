@@ -31,10 +31,10 @@ namespace importing {
   //以下两种办法，let出来时值 const出来时类型。。。！！！！！
   //捕获变量的类型
   const foo2 = 123;
-  let bar3: typeof foo2; // 'bar' 类型与 'foo' 类型相同（在这里是： 'number'）
+  let bar33: typeof foo2; // 'bar' 类型与 'foo' 类型相同
 
-  bar3 = 456; // ok
-  bar3 = '789'; // Error: 'string' 不能分配给 'number' 类型
+  bar33 = 123; // ok
+  bar33 = '789'; // Error: 'string' 不能分配给 'number' 类型
 
   // 捕获字符串的类型与值
   const foo3 = 'Hello World';
