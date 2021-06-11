@@ -115,6 +115,9 @@ let someValue: any = "this is a string";
 
 let strLength: number = (someValue as string).length;
 
+//3.一次断不能改用双重断言
+let someValue2: object = {};
+let strLength2: string = JSON.stringify(someValue2 as any as HTMLElement);
 
  /** *///高级类型 /** */
 //这里可以用 和， 或，  其中一个  这些高级方法

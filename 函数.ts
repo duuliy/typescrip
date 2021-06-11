@@ -41,4 +41,9 @@ const ShortHand: ShortHand = (a) => {
   return a
 }
 
+//等于
+const ShortHand2: (a: number) => number = (a) => {
+  return a
+}
+
 ShortHand('sdsd')
