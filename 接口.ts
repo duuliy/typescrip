@@ -96,7 +96,7 @@ interface ClockInterface {
   setTime(d: Date);
 }
 
-class Clock implements ClockInterface {  //implements  类似extends  ,但是支集成接口
+class Clock implements ClockInterface {  //implements  类似extends  ,但是只集成接口
   currentTime: Date;
   setTime(d: Date) {
     this.currentTime = d;
