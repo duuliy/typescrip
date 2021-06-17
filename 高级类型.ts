@@ -38,8 +38,24 @@ function getSmallPet2(): Fish2 & Bird2 {
 }
 
 let pet2 = getSmallPet2();
-pet2.layEggs(); // okay
-pet2.swim();    // okay  取并集
+pet2.layEggs(); // 错误 返回值只能是一个类型得用下面的例子
+pet2.swim();    // 错误  
+
+// eg3
+//ts 根据不同的参数返回不同的类型
+
+type TestReturn = {
+  t: number;
+  h: string;
+}
+type aa = keyof TestReturn
+const test666 = <T extends keyof TestReturn>(p: T): TestReturn[T] => ({
+  t: 3,
+  h: '',
+})[p];
+
+test666('t')
+test666('h')
 
 
 //联合类型（=
