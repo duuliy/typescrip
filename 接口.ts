@@ -81,7 +81,7 @@ mySearch(66, '66')
 
 /** *///可索引的类型 /** */
 interface StringArray {
-  [index: number]: string;
+  [index: number]: string;   // 字段扩展声明
 }
 
 let myArray: StringArray;
