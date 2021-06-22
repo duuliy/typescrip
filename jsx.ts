@@ -23,5 +23,5 @@ let SomeThing: Display = /* ... */
 let jsx = <SomeThing />;
 
 //正确写法:
-let SomeThing2: typeof Display = /* ... */
+let SomeThing2: typeof Display = Display/* ... */
 

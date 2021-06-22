@@ -57,3 +57,29 @@ function getSmallPet(): Fish | Bird {
 let pet = getSmallPet();
 pet.layEggs(); // okay
 pet.swim();    // errors
+
+//辨析联合类型
+
+interface Square {
+  kind: 'square';
+  size: number;
+}
+
+interface Rectangle {
+  kind: 'rectangle';
+  width: number;
+  height: number;
+}
+
+type Shape = Square | Rectangle;
+
+function area(s: Shape) {
+  if (s.kind === 'square') {
+    // 现在 TypeScript 知道 s 的类型是 Square
+    // 所以你现在能安全使用它
+    return s.size * s.size;
+  } else {
+    // 不是一个 square ？因此 TypeScript 将会推算出 s 一定是 Rectangle
+    return s.width * s.height;
+  }
+}
