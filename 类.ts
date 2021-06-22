@@ -220,7 +220,7 @@ class MyClass {
   let obj = new MyClass();
   window.setTimeout(obj.someCallback, 10);
 
-  //需要传super把
+  //需要穿super把
 
 //   可能会提出一些相似的问题：
 

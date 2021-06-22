@@ -1,20 +1,28 @@
 
 //布尔值
 let isDone: boolean = false;
+isDone=null
+isDone=undefined
 
 //数字(支持十进制和十六进制字面量，还支持ES6中引入的二进制和八进制字面量。)
 let decLiteral: number = 6;
 let hexLiteral: number = 0xf00d;
 let binaryLiteral: number = 0b1010;
 let octalLiteral: number = 0o744;
+decLiteral=null
+decLiteral=undefined
 
 //字符串
 let names: string = "bob";
+names=null
+names=undefined
 // I'll be ${ names + 1 } years old next month.`;
 
 //数组
 let list1: number[] = [1, 2, 3];
 let list: Array<number> = [1, 2, 3];
+list1=null
+list1=undefined
 
 //元组 Tuple 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。
 // Declare a tuple type
@@ -23,6 +31,8 @@ let x: [string, number];
 x = ['hello', 10]; // OK
 // Initialize it incorrectly
 x = [10, 'hello']; // Error
+x=null
+x=undefined
 
 //当访问一个已知索引的元素，会得到正确的类型：
 console.log(x[0].substr(1)); // OK
@@ -40,7 +50,8 @@ x[6] = true; // Error, 布尔不是(string | number)类型
 //枚举
 enum Color {Red = 1, Green = 2, Blue = 4}
 let c: Color = Color.Green;
-
+c=null
+c=undefined
 
 //Any 我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。
 let notSure: any = 4;
@@ -85,6 +96,10 @@ create("string"); // Error
 create(false); // Error
 create(undefined); // Error
 
+let obj1:object={}
+obj1=null
+obj1=undefined
+
 
 //类型断言
 //类型断言（Type Assertion）可以用来手动指定一个值的类型。
@@ -100,6 +115,9 @@ let someValue: any = "this is a string";
 
 let strLength: number = (someValue as string).length;
 
+//3.一次断不能改用双重断言
+let someValue2: object = {};
+let strLength2: string = JSON.stringify(someValue2 as any as HTMLElement);
 
  /** *///高级类型 /** */
 //这里可以用 和， 或，  其中一个  这些高级方法
@@ -109,3 +127,22 @@ let strLength: number = (someValue as string).length;
 
  // 这样不会报错
 let num: number = undefined;
+
+
+//内联类型注解
+
+let inlineName: {
+  first: string;
+  second: string;
+}
+
+inlineName = {
+  first: 'John',
+  second: 'Doe'
+}
+
+inlineName = {
+  // Error: 'Second is the wrong type'
+  first: 'John',
+  second: 1337
+}

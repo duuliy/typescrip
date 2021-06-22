@@ -20,5 +20,5 @@ let { a: newName1, b: newName2 } = o;
 // export = commonjs 导出模块
 // export as namespace UMD 库声明全局变量
 // declare global 扩展全局变量
-// declare module 扩展模块 用来做一些第三方库没有支持ts的, 而不报错。
-/// <reference /> 三斜线指令
+// declare module 扩展模块
+// <reference /> 三斜线指令
