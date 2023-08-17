@@ -15,6 +15,29 @@ type Env2 = 'prod' | 'boe' | 'ppe';
 type EnvUnion = Env1 | Env2; // 'prod' | 'test' | 'dev' | 'boe' | 'ppe'
 type EnvInter = Env1 & Env2; // 'prod'
 
+const EnvInter2: EnvInter = 'boe'
+
+type U = {
+  a: number,
+  b: number,
+} & {
+  a: number,
+  c: number,
+}
+
+//这里并集爆错是因为，并的不是值 是这两个集合以下整体为1个并集结果, 交集同理   ！！！
+// {
+//   a: number,
+//   b: number,
+//   c: number,
+// }
+
+const u1: U = {
+  a: 1,
+  b: 2,
+}
+
+
 function extend<T, U>(first: T, second: U): T & U {
     let result = <T & U>{};
     for (let id in first) {
