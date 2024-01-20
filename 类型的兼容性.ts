@@ -26,9 +26,10 @@ let y2 = (b: number, s: string) => 0;
 y2 = x2; // OK
 x2 = y2; // Error
 
-
-//函数参数双向协变
-
+// 协变和逆变
+// 函数参数双向协变
+// 在老版本的 TS 中，函数参数是双向协变的。也就是说，既可以协变又可以逆变，但是这并不是类型安全的。 
+// 在新版本 TS (2.6+) 中 ，你可以通过开启 strictFunctionTypes 或 strict 来修复这个问题。设置之后，函数参数就不再是双向协变的了
 enum EventType { Mouse, Keyboard }
 
 interface Event { timestamp: number; }

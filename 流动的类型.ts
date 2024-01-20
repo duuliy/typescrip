@@ -50,13 +50,13 @@ namespace importing {
 
   //keyof 操作符能让你捕获一个类型的键。
   const colors = {
-    red: 'red',
-    blue: 'blue'
+    red: 'red33',
+    blue: 'blue33'
   };
   
   type Colors = keyof typeof colors;
   
-  let color: Colors; // color 的类型是 'red' | 'blue'
-  color = 'red'; // ok
-  color = 'blue'; // ok
-  color = 'anythingElse'; // Error
+  let color2: Colors = 'red'; // color 的类型是 'red' | 'blue'
+  color2 = 'red'; // ok
+  color2 = 'blue'; // ok
+  color2 = 'anythingElse'; // Error
